@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Peminjaman Buku</title>
+    <style>
+        /* CSS untuk styling navbar */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .navbar a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+        /* CSS untuk styling form */
+        .container {
+            margin: 20px;
+        }
+        form {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        input[type=text], select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type=submit] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+        table {
+        border-collapse: collapse;
+        width: 100%;
+        }
+        th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+        }
+        th {
+        background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <a class="active" href="/">HOME</a>
+    <a href="/pendaftaran">PENDAFTARAN-MAHASISWA</a>
+    <a href="/pinjambuku">PEMINJAMAN-BUKU</a>
+    <a href="/daftarmahasiswa">DAFTAR-MAHASISWA</a>
+    <a href="/daftarpeminjam">DAFTAR-PEMINJAM</a>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>NAMA</th>
+            <th>JUDUL-BUKU</th>
+            <th>PENGARANG</th>
+            <th>TANGGAL-PEMINJAMAN</th>
+            <th>ALAMAT</th>
+            <th>TANGGAL-PENGEMBALIAN</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pinjambuku in buku %}
+        <tr>
+            <td>{{pinjambuku.Nama}}</td>
+            <td>{{pinjambuku.Judul_buku}}</td>
+            <td>{{pinjambuku.Pengarang}}</td>
+            <td>{{pinjambuku.Tanggal_peminjaman}}</td>
+            <td>{{pinjambuku.Alamat }}</td>
+            <td>{{ pinjambuku.Tanggal_pengembalian }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>
